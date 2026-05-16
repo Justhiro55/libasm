@@ -1,0 +1,32 @@
+# Subject
+Subject.pdf
+
+# macOS
+.DS_Store
+
+# Object files
+*.o
+*.obj
+
+# Static / shared libraries
+*.a
+*.so
+*.dylib
+
+# Listings & debug symbols
+*.lst
+*.map
+*.dSYM/
+
+# Executables
+*.out
+a.out
+*.exe
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+test_libasm

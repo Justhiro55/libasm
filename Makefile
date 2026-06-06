@@ -13,24 +13,13 @@ SRCS		= ft_strlen.s \
 OBJS		= $(SRCS:%.s=$(OBJ_DIR)/%.o)
 
 NASM		= nasm
-UNAME_S		:= $(shell uname -s)
-ifeq ($(UNAME_S),Darwin)
-	NASM_FMT = macho64
-	NASM_DEF = -D MACOS
-else
-	NASM_FMT = elf64
-	NASM_DEF =
-endif
-NASM_FLAGS	= -f $(NASM_FMT) $(NASM_DEF)
+NASM_FLAGS	= -f elf64
 
 AR			= ar
 ARFLAGS		= rcs
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -I$(INC_DIR)
-ifeq ($(UNAME_S),Darwin)
-	CFLAGS += -arch x86_64
-endif
 
 TEST		= test_libasm
 TEST_SRC	= main.c

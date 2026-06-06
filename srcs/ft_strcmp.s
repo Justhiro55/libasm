@@ -4,17 +4,9 @@
 ;   eax <- difference (s1[i] - s2[i]) as unsigned char
 
 section .text
-%ifdef MACOS
-	global _ft_strcmp
-%else
 	global ft_strcmp
-%endif
 
-%ifdef MACOS
-_ft_strcmp:
-%else
 ft_strcmp:
-%endif
 	xor		rcx, rcx ; i
 .loop:
 	movzx	eax, byte [rdi + rcx]   ; eax = (unsigned char)s1[i]

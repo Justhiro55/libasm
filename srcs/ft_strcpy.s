@@ -4,17 +4,9 @@
 ;   rax <- dst (return value)
 
 section .text
-%ifdef MACOS
-	global _ft_strcpy
-%else
 	global ft_strcpy
-%endif
 
-%ifdef MACOS
-_ft_strcpy:
-%else
 ft_strcpy:
-%endif
 	xor		rcx, rcx ; i
 .loop:
 	mov		al, byte [rsi + rcx]    ; al = src[rcx]

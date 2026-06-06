@@ -4,17 +4,24 @@ SRCS_DIR	= srcs
 INC_DIR		= includes
 OBJ_DIR		= objs
 
-SRCS		= ft_strlen.s
+SRCS		= ft_strlen.s \
+			  ft_strcpy.s \
+			  ft_strcmp.s \
+			  ft_write.s \
+			  ft_read.s \
+			  ft_strdup.s
 OBJS		= $(SRCS:%.s=$(OBJ_DIR)/%.o)
 
 NASM		= nasm
 UNAME_S		:= $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 	NASM_FMT = macho64
+	NASM_DEF = -D MACOS
 else
 	NASM_FMT = elf64
+	NASM_DEF =
 endif
-NASM_FLAGS	= -f $(NASM_FMT)
+NASM_FLAGS	= -f $(NASM_FMT) $(NASM_DEF)
 
 AR			= ar
 ARFLAGS		= rcs

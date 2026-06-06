@@ -7,13 +7,21 @@
 ; 入力レジスタ / 出力レジスタのメモ
 
 section .text
+%ifdef MACOS
 	global _ft_strlen
+%else
+	global ft_strlen
+%endif
 
 ; 実行ファイルの中身は各セクションに分かれている
 ; .text <- 実行コード. 関数本体
 ; .data <- 初期化付きのグローバル変数，等々
 
+%ifdef MACOS
 _ft_strlen:
+%else
+ft_strlen:
+%endif
 	xor		rax, rax
 	; 0初期化の時はこの書き方で初期化が慣習
 	; 0以外はmovを使うがxor使う方が処理が早い
